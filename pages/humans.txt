@@ -1,0 +1,27 @@
+/* TEAM */
+Developer: Adam DJ Brett
+Site: https://www.adamdjbrett.com/
+
+/* THANKS */
+Thanks to the open source community and Eleventy!
+Developer: Nicolas Hoizey
+Site: https://github.com/nhoizey
+
+Developer: Phil Hawksworth
+Site: https://github.com/philhawksworth
+
+Developer: Zach Leatherman
+Site: https://www.zachleat.com/
+
+/* Credits */
+
+Static Site Generator: Eleventy
+Website: 11ty.dev
+
+/* SITE */
+
+Last update: {{ page.date }}
+Language: English
+Generator: Eleventy
+Doctype: HTML5
+IDE: Terminal, VS Code
