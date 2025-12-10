@@ -6,6 +6,32 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  // Ensure sitemap and other templates can safely build absolute URLs
+  eleventyConfig.addFilter("htmlBaseUrl", function(url = "", base = "") {
+    if (!url) {
+      return "";
+    }
+    if (!base) {
+      return url;
+    }
+    try {
+      return new URL(url, base).toString();
+    } catch {
+      return url;
+    }
+  });
+
+  eleventyConfig.addFilter("htmlDateString", function(dateValue) {
+    if (!dateValue) {
+      return "";
+    }
+    const date = new Date(dateValue);
+    if (Number.isNaN(date.getTime())) {
+      return "";
+    }
+    return date.toISOString().split("T")[0];
+  });
+
   // Passthrough copy for favicons
   eleventyConfig.addPassthroughCopy({ "favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "favicon.png": "favicon.png" });
